@@ -62,6 +62,7 @@ class Student
     end.first
   end
   
-  
+  def self.all 
+  end
   
 end
