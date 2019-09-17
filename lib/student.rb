@@ -29,7 +29,7 @@ class Student
     CREATE TABLE IF NOT EXISTS students (
       id INTEGER PRIMARY KEY,
       name TEXT,
-      grade TEXT
+      grade INTEGER
     )
     SQL
 
@@ -77,7 +77,7 @@ class Student
     sql = <<-SQL
       SELECT *
       FROM students
-      WHERE grade = "9"
+      WHERE grade = 9
     SQL
     
     DB[:conn].execute(sql).map do |row|
@@ -85,11 +85,11 @@ class Student
     end
   end
   
-  def self.all_students_in_grade_9 
+  def self.students_below_12th_grade 
     sql = <<-SQL
       SELECT *
       FROM students
-      WHERE grade = "9"
+      WHERE grade < 12
     SQL
     
     DB[:conn].execute(sql).map do |row|
